@@ -1,0 +1,49 @@
+@import "color";
+@import "reset";
+html,body,h1,h2,h3{
+  margin:0;
+}
+header{
+  width:100%;
+  background-color:$back-sub-color;
+  h1{
+    font-size:40px;
+    padding:20px;
+  }
+  h3{
+    margin:5px;
+    padding:10px;
+    font-size:20px;
+  }
+  small{
+    padding:3px;
+  }
+}
+
+.addtask{
+  height:100vh;
+  width:100vw;
+  position: fixed;
+  display: block;
+  top: 0px;
+  background-color:rgba(0,0,0,0.6);
+  form{
+    background-color:$back-sub-color;
+    width: 80vw;
+    height: 200px;
+    position: absolute;
+    top: 20vh;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.gatsby-image-wrapper{
+  margin:10px;
+  margin-top:20px;
+}
+footer{
+  width:100%;
+}
