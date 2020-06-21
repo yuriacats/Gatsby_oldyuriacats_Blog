@@ -48,6 +48,7 @@ const Layout = ({ location, title, children }) => {
     <div
       style={{
         maxWidth: rhythm(24),
+        margin:'0 auto'
       }}
     >
       <header>{header}</header>
