@@ -15,30 +15,13 @@ header{
     padding:10px;
     font-size:20px;
   }
-  small{
+  small,p{
     padding:3px;
+    padding-left:30px;
   }
 }
-
-.addtask{
-  height:100vh;
-  width:100vw;
-  position: fixed;
-  display: block;
-  top: 0px;
-  background-color:rgba(0,0,0,0.6);
-  form{
-    background-color:$back-sub-color;
-    width: 80vw;
-    height: 200px;
-    position: absolute;
-    top: 20vh;
-    left: 10vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+header:nth-child(2n+1){
+  background-color:$text-accent-color;
 }
 .gatsby-image-wrapper{
   margin:10px;
@@ -46,4 +29,9 @@ header{
 }
 footer{
   width:100%;
-}
+  position:static;
+  padding:0;
+  div{
+    padding:10px;
+  }
+  }
