@@ -20,8 +20,10 @@ header{
     padding-left:30px;
   }
 }
-header:nth-child(2n+1){
+article:nth-child(2n+1){
+  header{
   background-color:$text-accent-color;
+  }
 }
 .gatsby-image-wrapper{
   margin:10px;
