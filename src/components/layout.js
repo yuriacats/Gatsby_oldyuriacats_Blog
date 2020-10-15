@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-
-import { rhythm, scale } from "../utils/typography"
+import "../utils/scss/common.scss"
+import { rhythm } from "../utils/typography"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -45,15 +45,20 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div
-      style={{
-        maxWidth: rhythm(24),
-        margin:'0 auto'
-      }}
-    >
+    <div>
       <header>{header}</header>
-      <main>{children}</main>
-      <footer>
+      <main
+          style={{
+              maxWidth: rhythm(24),
+              margin:'0 auto'
+          }}
+      >{children}</main>
+      <footer
+          style={{
+              position: 'absolute',
+              bottom: '0'
+          }}
+      >
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
