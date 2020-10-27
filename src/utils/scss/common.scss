@@ -4,7 +4,6 @@ html,body,h1,h2,h3{
   margin:0;
 }
 header{
-  width:100%;
   background-color:$back-sub-color;
   h1{
     font-size:40px;
@@ -19,15 +18,38 @@ header{
     padding:3px;
     padding-left:30px;
   }
+  .gatsby-image-wrapper{
+    height:300px;
+    object-fit: cover;
+  }
+}
+article{
+  .posts {
+    margin: 20px;
+    a {
+      display: flex;
+      .post-info {
+        flex-grow: 2;
+      }
+      .posts__image_container {
+        flex-grow: 1;
+        .gatsby-image-wrapper{
+          height:100px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
 }
 article:nth-child(2n+1){
-  header{
-  background-color:$text-accent-color;
+  div{
+    background-color:$text-accent-color;
   }
 }
 .gatsby-image-wrapper{
   margin:10px;
   margin-top:20px;
+  flex-grow: 1;
 }
 footer{
   width:100%;

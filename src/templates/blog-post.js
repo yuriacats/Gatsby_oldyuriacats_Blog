@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import Image from "gatsby-image";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
@@ -10,6 +9,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const thumbnail_image= post.frontmatter.thumbnail ? post.frontmatter.thumbnail.childImageSharp.fluid : data.def_image.childImageSharp.fixed ;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -27,6 +27,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
+            <Image
+                fluid={thumbnail_image}
+            />
           <p
             style={{
               ...scale(-1 / 5),
@@ -37,6 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
         </header>
+
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -44,7 +48,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }}
         />
         <footer>
-          <Bio />
         </footer>
       </article>
 
@@ -87,6 +90,13 @@ export const pageQuery = graphql`
         title
       }
     }
+    def_image: file(absolutePath: { regex: "/defalt.png/" }) {
+        childImageSharp {
+          fixed(width: 400, height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
@@ -95,6 +105,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1280) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

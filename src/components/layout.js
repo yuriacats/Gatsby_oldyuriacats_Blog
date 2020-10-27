@@ -50,7 +50,8 @@ const Layout = ({ location, title, children }) => {
       <main
           style={{
               maxWidth: rhythm(24),
-              margin:'0 auto'
+              margin:'0 auto',
+              paddingBottom:'45px'
           }}
       >{children}</main>
       <footer

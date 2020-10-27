@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import "../utils/scss/common.scss"
+import Image from "gatsby-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -17,19 +18,28 @@ const BlogIndex = ({ data, location }) => {
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
+        const thumbnail_image= node.frontmatter.thumbnail ? node.frontmatter.thumbnail.childImageSharp.fluid : data.def_image.childImageSharp.fixed ;
         return (
           <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
+            <header className="posts">
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
+                    <div className="posts__image_container" >
+                        <Image
+                            className="posts__image"
+                            fluid={thumbnail_image}
+                        />
+                    </div>
+                <div className="post-info">
+                    <h3
+                        style={{
+                            marginBottom: rhythm(1 / 4),
+                        }}
+                    >
+                            {title}
+                    </h3>
+                    <small>{node.frontmatter.date}</small>
+                </div>
                 </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
             </header>
 
           </article>
@@ -48,6 +58,13 @@ export const pageQuery = graphql`
         title
       }
     }
+    def_image: file(absolutePath: { regex: "/defalt.png/" }) {
+        childImageSharp {
+          fixed(width: 400, height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
@@ -59,6 +76,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 1280) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
