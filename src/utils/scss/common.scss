@@ -23,7 +23,10 @@ header{
     object-fit: cover;
   }
 }
+
 article{
+  width:80vw;
+  margin:0 auto;
   .posts {
     margin: 20px;
     a {
@@ -51,11 +54,34 @@ article:nth-child(2n+1){
   margin-top:20px;
   flex-grow: 1;
 }
-footer{
-  width:100%;
-  position:static;
-  padding:0;
-  div{
-    padding:10px;
+
+.post-header{
+  background-color: $back-color;
+  .gatsby-image-wrapper{
+    width: 50vw;
+    left: 25vw;
+    height: 40vh;
+    z-index:3;
   }
+  h1{
+    position: absolute;
+    top:10vh;
+    left:21vw;
+    z-index: 4;
+    background-color: rgba(255,255,255,0.3);
   }
+}
+.post-header::after{
+     width:50vw;
+     height:40vh;
+     content:"";
+     background-color: $back-sub-color;
+     position:absolute;
+     top:10vh;
+     left:15vw;
+     z-index: 1;
+   }
+.post-inner{
+  width:60vw;
+  margin:0 auto;
+}

@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
-        <header>
+        <header className={"post-header"}>
           <h1
             style={{
               marginTop: rhythm(1),
@@ -27,21 +27,27 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
+
             <Image
                 fluid={thumbnail_image}
             />
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+            <p
+                style={{
+                    ...scale(-1 / 5),
+                    display: `block`,
+                    marginBottom: rhythm(1),
+                    zIndex:'4',
+                    bottom:'5vh',
+                    left:'10vw',
+                    position:'relative'
+                }}
+            >
+                {post.frontmatter.date}
+            </p>
         </header>
 
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section className={"post-inner"} dangerouslySetInnerHTML={{ __html: post.html }} />
+
         <hr
           style={{
             marginBottom: rhythm(1),
