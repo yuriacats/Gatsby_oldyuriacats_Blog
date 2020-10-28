@@ -82,12 +82,12 @@ article:nth-child(2n+1){
 .post-header{
   background-color: $back-color;
   .gatsby-image-wrapper{
+    background-color: $text-accent-color;
     width: 50vw;
     left: 25vw;
     height: 40vh;
     z-index:3;
     @include mq(sm) { // 引数を個別に指定
-      background-color: $text-accent-color;
       width: 68vw;
       left: 25vw;
       height: 40vh;
@@ -139,9 +139,12 @@ nav{
     flex-wrap:wrap;
     justify-content: space-between;
     list-style:none;
+    width:60vw;
+    margin:0 auto;
     padding: 0;
     @include mq(sm) {
       display:block;
+      width:90vw;
       li:nth-child(2n){
         text-align:right;
       }
