@@ -34,4 +34,16 @@ footer{
   padding:30px 0;
   position:absolute;
   bottom:0
-} 
+}
+//メディアクエリ用 参考: https://www.tam-tam.co.jp/tipsnote/html_css/post10708.html
+$breakpoints: (
+        'sm': 'screen and (min-width: 400px)',
+        'md': 'screen and (min-width: 768px)',
+        'lg': 'screen and (min-width: 1000px)',
+        'xl': 'screen and (min-width: 1200px)',
+) !default;
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

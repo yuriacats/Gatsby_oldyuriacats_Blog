@@ -31,6 +31,7 @@ article{
     margin: 20px;
     a {
       display: flex;
+      color:$text-main-color;
       .post-info {
         flex-grow: 2;
       }
@@ -43,15 +44,38 @@ article{
       }
     }
   }
+  @include mq(sm) { // 引数を個別に指定
+    width:90vw;
+    margin:0 auto;
+    .posts {
+      a {
+        display:block;
+        .post-info {
+          h3{
+           margin:0;
+            padding-left:30px;
+          }
+        }
+        .posts__image_container {
+          .gatsby-image-wrapper{
+            height:200px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
 }
+
 article:nth-child(2n+1){
-  div{
+  a{
     background-color:$text-accent-color;
+
   }
 }
 .gatsby-image-wrapper{
-  margin:10px;
-  margin-top:20px;
+  margin: 10px;
+  margin-top: 20px;
   flex-grow: 1;
 }
 
@@ -62,17 +86,35 @@ article:nth-child(2n+1){
     left: 25vw;
     height: 40vh;
     z-index:3;
+    @include mq(sm) { // 引数を個別に指定
+      background-color: $text-accent-color;
+      width: 68vw;
+      left: 25vw;
+      height: 40vh;
+      z-index:3;
+    }
   }
   h1{
     position: absolute;
     top:10vh;
     left:21vw;
     z-index: 4;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.6);
   }
+  p{
+    display:block;
+    z-index:4;
+    bottom:5vh;
+    left:10vw;
+    position:relative;
+    @include mq(sm) {
+      left:-10vw;
+    }
+  }
+
 }
 .post-header::after{
-     width:50vw;
+     width:60vw;
      height:40vh;
      content:"";
      background-color: $back-sub-color;
@@ -80,8 +122,30 @@ article:nth-child(2n+1){
      top:10vh;
      left:15vw;
      z-index: 1;
-   }
+  @include mq(sm) {
+    left:0;
+  }
+  }
 .post-inner{
   width:60vw;
   margin:0 auto;
+  @include mq(sm) {
+    width:90vw;
+  }
+}
+nav{
+  ul{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    list-style:none;
+    padding: 0;
+    @include mq(sm) {
+      display:block;
+      li:nth-child(2n){
+        text-align:right;
+      }
+    }
+  }
+
 }
