@@ -35,7 +35,12 @@ footer{
   position:absolute;
   bottom:0
 }
+html{
+  width:100vw;
+
+}
 //メディアクエリ用 参考: https://www.tam-tam.co.jp/tipsnote/html_css/post10708.html
+//smの部分のみ変更を加えている。自分が使いやすいようにリファクタリングしよう!このままでもいい気はするが…
 $breakpoints: (
         'sm': 'screen and (max-width: 768px)',
         'md': 'screen and (min-width: 768px)',
