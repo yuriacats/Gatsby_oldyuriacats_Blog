@@ -8,6 +8,9 @@ body{
           60px 60px /120px 120px radial-gradient(closest-side,transparent 97%,$back-color 90%),
           0px 0px / 120px 120px radial-gradient( closest-side,transparent 97%,$back-color  90%);
 }
+main{
+  background-color: rgba(255,255,255,0.6) ;
+}
 header{
   background-color:$back-sub-color;
   h1{
