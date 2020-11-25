@@ -13,20 +13,23 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} >
       <SEO title="All posts" />
-      <Bio />
+      <Bio className={"bio"} />
+      <div className={"post-content"}>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         const thumbnail_image= node.frontmatter.thumbnail ? node.frontmatter.thumbnail.childImageSharp.fluid : data.def_image.childImageSharp.fixed ;
         return (
-          <article key={node.fields.slug}>
+          <article key={node.fields.slug} className={"post-article"}>
             <header className="posts">
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     <div className="posts__image_container" >
                         <Image
-                            className="posts__image"
+                            className="posts_image"
                             fluid={thumbnail_image}
+                            style={{position: "relative",
+                            height:"200px"}}
                         />
                     </div>
                 <div className="post-info">
@@ -45,6 +48,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
+      </div>
     </Layout>
   )
 }

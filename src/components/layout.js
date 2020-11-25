@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import "../utils/scss/common.scss"
 
 
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
@@ -45,8 +46,8 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div>
-      <header>{header}</header>
+    <div >
+      <header className='main-header'>{header}</header>
       <main
       style={{
           paddingBottom:'100px'

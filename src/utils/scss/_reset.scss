@@ -43,7 +43,9 @@ html{
 //smの部分のみ変更を加えている。自分が使いやすいようにリファクタリングしよう!このままでもいい気はするが…
 $breakpoints: (
         'sm': 'screen and (max-width: 768px)',
+        'smd': 'screen and (min-width: 600px)',
         'md': 'screen and (min-width: 768px)',
+        'mlg': 'screen and (min-width: 900px)',
         'lg': 'screen and (min-width: 1000px)',
         'xl': 'screen and (min-width: 1200px)',
 ) !default;

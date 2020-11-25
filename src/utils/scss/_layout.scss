@@ -1,0 +1,48 @@
+@import "color";
+.white-filter{
+  background-color: rgba(255,255,255,0.6);
+}
+#___gatsby{
+  min-height:100vh;
+  background-color: rgba(255,255,255,0.6);
+}
+.main-header{
+  background-color: $back-sub-color;
+  height:70px;
+  h3,h1{
+    color:$text-main-color;
+    font-size:24px;
+    padding:20px;
+  }
+}
+.post-article{
+  background-color: $back-sub-color;
+  width:300px;
+
+}
+.posts-image{
+  width:100%;
+  height:100px;
+}
+.post-content{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin:0 auto;
+  @media screen and (max-width: 599px) {
+    justify-content: center;
+  }
+  @include mq(smd) {
+    max-width:600px;
+  }
+  @include mq(mlg) {
+    max-width:900px;
+  }
+  @include mq(xl) {
+    max-width:1200px;
+  }
+}
+footer{
+  //footer グラデーションにする
+  text-align: center;
+}
