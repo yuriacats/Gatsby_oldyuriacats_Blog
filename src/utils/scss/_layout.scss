@@ -46,3 +46,66 @@ footer{
   //footer グラデーションにする
   text-align: center;
 }
+
+.post-header{
+  .gatsby-image-wrapper{
+    background-color: $text-accent-color;
+    top:-2vh;
+    width: 50vw;
+    left: 29vw;
+    height: 40vh;
+    z-index:3;
+    @include mq(sm) { // 引数を個別に指定
+      width: 68vw;
+      left: 25vw;
+      height: 40vh;
+      z-index:3;
+    }
+  }
+  h1{
+    position: relative;
+    width:fit-content;
+    min-width:40vw;
+    min-height:10vh;
+    padding: 10px;
+    top:30vh;
+    left:21vw;
+    z-index: 4;
+    font-size:2.5rem;
+    background-color: rgba(255,255,255,0.8);
+  }
+}
+.post-header::after{
+  width:50vw;
+  height:40vh;
+  content:"";
+  background-color: $back-sub-color;
+  position:absolute;
+  top:15vh;
+  left:21vw;
+  z-index: 1;
+  @include mq(sm) {
+    left:0;
+  }
+}
+.post-inner{
+  width:60vw;
+  margin: 0 auto ;
+  background-color: rgb(232,218,171,);
+  padding: 40px 30px;
+  @include mq(sm) {
+    width:90vw;
+  }
+}
+.post-date{
+  font-size:14px;
+  margin-bottom:10px;
+  display:block;
+  z-index:4;
+  bottom:calc(12vh + 5px );
+  left:calc(21vw + 5px );
+  position:relative;
+  @include mq(sm) {
+    left:-10vw;
+  }
+}

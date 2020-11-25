@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Image from "gatsby-image";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -32,12 +32,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <Image
                 fluid={thumbnail_image}
             />
-            <p
-                style={{
-                    ...scale(-1 / 5),
-                    marginBottom: rhythm(1),
-                }}
-            >
+            <p className={"post-date"}>
                 {post.frontmatter.date}
             </p>
         </header>
